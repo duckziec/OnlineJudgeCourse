@@ -89,9 +89,12 @@ src/app/Main.java
 #### **Cách 2 – Chạy bằng file JAR**
 
 ```bash
-java -jar OnlineJudgeApp.jar
+java -jar OnlineJudgeCourse.jar
 ```
 
+#### **Cách 3 – Chạy bằng file .EXE**
+  Chạy file .exe trong Application
+  
 ---
 
 ## 📂 Cấu trúc Dự án
