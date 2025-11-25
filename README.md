@@ -93,11 +93,8 @@ java -jar OnlineJudgeCourse.jar
 ```
 
 #### **Cách 3 – Chạy bằng file .EXE**
-Chạy file .exe trong link dưới:
-```bash
-https://drive.google.com/drive/folders/1ReYkBv8fPJ2n5x3hWfdpbd5_oswUgPMb?usp=sharing
-```
-  
+Chạy file .exe <a href="https://drive.google.com/drive/folders/1ReYkBv8fPJ2n5x3hWfdpbd5_oswUgPMb?usp=sharing" target="_blank">TẠI ĐÂY</a>
+
 ---
 
 ## 📂 Cấu trúc Dự án
