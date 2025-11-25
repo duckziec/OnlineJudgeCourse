@@ -145,4 +145,4 @@ OnlineJudgeCourse/
 
 ## ❤️ Lời cảm ơn
 
-Xin cảm ơn Giảng viên đã dành thời gian xem xét dự án!
+Xin cảm ơn Giảng viên và mọi người đã dành thời gian xem xét dự án!
