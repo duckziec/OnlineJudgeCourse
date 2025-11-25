@@ -1,0 +1,284 @@
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Java Version:");
+    }
+}
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        int i = 10;
+        double d = 3.14;
+        boolean b = true;
+        char c = 'A';
+
+        System.out.println(i);
+        System.out.println(d);
+        System.out.println(b);
+        System.out.println(c);
+    }
+}
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        System.out.println("Tong: " + (a + b));
+        System.out.println("Hieu: " + (a - b));
+        System.out.println("Tich: " + (a * b));
+
+        if (b == 0) {
+            System.out.println("Thuong: Khong the chia cho 0");
+            System.out.println("Phan du: Khong the chia cho 0");
+        } else {
+            System.out.println("Thuong: " + (a / b));
+            System.out.println("Phan du: " + (a % b));
+        }
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int z = sc.nextInt();
+
+        System.out.println("x == z: " + (x == z));
+        System.out.println("x < y: " + (x < y));
+        System.out.println("x > y: " + (x > y));
+        System.out.println("(x<y && y>z): " + ((x < y) && (y > z)));
+    }
+}
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int year = sc.nextInt();
+
+        if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
+            System.out.println("Nam nhuan");
+        } else {
+            System.out.println("Khong phai nam nhuan");
+        }
+    }
+}
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double score = sc.nextDouble();
+
+        if (score >= 8.0) {
+            System.out.println("Gioi");
+        } else if (score >= 6.5) {
+            System.out.println("Kha");
+        } else if (score >= 5.0) {
+            System.out.println("Trung binh");
+        } else {
+            System.out.println("Yeu");
+        }
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();  // Nhập số nguyên n (2-9)
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(n + " x " + i + " = " + (n * i));
+        }
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();   // Nhập số nguyên dương n
+        int sum = 0;
+
+        // Tính tổng các chữ số
+        while (n > 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+
+        System.out.println(sum);  // In kết quả
+    }
+}
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = n + 1;
+        while (!isPrime(k)) {
+            k++;
+        }
+        System.out.println(k);
+    }
+
+    public static boolean isPrime(int x) {
+        if (x < 2) return false;
+        for (int i = 2; i * i <= x; i++) {
+            if (x % i == 0) return false;
+        }
+        return true;
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine().trim(); // đọc chuỗi và loại bỏ khoảng trắng đầu/cuối
+        
+        String upper = s.toUpperCase();
+        int length = s.length();
+        
+        System.out.println(upper);
+        System.out.println(length);
+    }
+}
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String name = sc.next();
+        int age = sc.nextInt();
+        double score = sc.nextDouble();
+
+        System.out.println("Ten: " + name);
+        System.out.println("Tuoi: " + age);
+        System.out.printf("Diem: %.2f",  score);
+    }
+}
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double x = sc.nextDouble();
+        int y = (int) x;
+
+        System.out.println(y);
+    }
+}
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        System.out.println("Tong: " + (a + b));
+        System.out.println("Hieu: " + (a - b));
+    }
+}
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        long fact = 1;
+
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+
+        System.out.println(fact);
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] a = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(a[i]);
+            if (i < n - 1) System.out.print(" ");
+        }
+    }
+}
