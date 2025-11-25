@@ -93,7 +93,10 @@ java -jar OnlineJudgeCourse.jar
 ```
 
 #### **Cách 3 – Chạy bằng file .EXE**
-  Chạy file .exe trong Application
+Chạy file .exe trong link dưới:
+```bash
+https://drive.google.com/drive/folders/1ReYkBv8fPJ2n5x3hWfdpbd5_oswUgPMb?usp=sharing
+```
   
 ---
 
