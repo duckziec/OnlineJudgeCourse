@@ -127,23 +127,6 @@ public class UserDAO extends BaseDAO<User> implements RowMapper<User> {
         return executeUpdate(sql, token, expiryTime, userId);
     }
 
-    public User getUserByResetToken(String token) {
-        String sql = "SELECT * FROM users WHERE reset_token = ?";
-        List<User> list = executeQuery(sql, rs -> {
-            User user = new User();
-            user.setUserId(rs.getInt("user_id"));
-            user.setFullName(rs.getString("full_name"));
-            user.setUserName(rs.getString("user_name"));
-            user.setEmail(rs.getString("email"));
-            user.setPassword(rs.getString("password"));
-            user.setCreateAt(rs.getTimestamp("create_at").toLocalDateTime());
-            user.setResetToken(rs.getString("reset_token"));
-            user.setTokenExpiry(rs.getTimestamp("token_expiry") != null ? rs.getTimestamp("token_expiry").toLocalDateTime() : null);
-            return user;
-        }, token);
-        return list.isEmpty() ? null : list.get(0);
-    }
-
     public boolean clearResetToken(int userId) {
         String sql = "UPDATE users SET reset_token = NULL, token_expiry = NULL WHERE user_id = ?";
         return executeUpdate(sql, userId);

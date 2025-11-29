@@ -79,29 +79,6 @@ public class UserService {
     }
 
     /**
-     * Change password
-     */
-    public boolean changePassword(String username, String oldPassword, String newPassword) {
-        // Validate
-        Validator.validateRequired("Username", username);
-        Validator.validatePassword(newPassword);
-
-        // Find and verify user
-        User user = userDAO.findByUserName(username);
-        if (user == null) {
-            throw new ValidationException("User not found");
-        }
-
-        if (!PasswordHash.checkPassword(oldPassword, user.getPassword())) {
-            throw new ValidationException("Old password is incorrect");
-        }
-
-        // Update password
-        user.setPassword(PasswordHash.hashPassword(newPassword));
-        return userDAO.updateUserById(user);
-    }
-
-    /**
      * Get all users (admin function)
      */
     public List<User> getAllUsers() {

@@ -9,7 +9,6 @@ import app.SessionManager;
 import exception.DatabaseException;
 import model.CodingQuestion;
 import model.Course;
-import model.Enrollment;
 import model.Lesson;
 import ui.auth.Login;
 import ui.components.CustomDialog;
@@ -675,6 +674,7 @@ public class BodyCodingExercises extends javax.swing.JPanel {
         this.currentCourse = course;
         AppConfig.getLessonService().reloadLessonsWithStatus(SessionManager.getInstance().getCurrentUser().getUserId(), course.getCourseId());
         currentLessonList = AppConfig.getLessonService().getAllLessons();
+
         for (Lesson lesson : currentLessonList) {
             lesson.setTitle(String.format("Bài %d: %s", lesson.getOrderIndex(), lesson.getTitle()));
             lesson.setStatus(lesson.getStatus().equalsIgnoreCase("Done") ? "Hoàn thành" : "Chưa hoàn thành");
@@ -682,10 +682,9 @@ public class BodyCodingExercises extends javax.swing.JPanel {
         currentCategoryList = AppConfig.getLessonService().getCategoryNames();
         currentCategoryList.addFirst("Tất cả");
         cbxNhom.setModel(new DefaultComboBoxModel<>(currentCategoryList.toArray(new String[0])));
-        Enrollment enrollment = AppConfig.getEnrollmentService().
-                getEnrollmentById(SessionManager.getInstance().getCurrentUser().getUserId(), currentCourse.getCourseId());
+
         try {
-            double progress = AppConfig.getAnalyticsService().getProgressCourse(enrollment.getCourseId());
+            double progress = AppConfig.getAnalyticsService().getProgressCourse(SessionManager.getInstance().getCurrentUser().getUserId(), course.getCourseId());
             cbCourses.setToolTipText(String.format("Tiến độ khóa học: %.1f%%", progress));
         } catch (DatabaseException e) {
             CustomDialog.getInstance().showError("Lỗi lấy tiến độ khóa học!", "Lỗi dữ liệu");

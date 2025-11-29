@@ -79,4 +79,14 @@ public class CodingQuestionDAO extends BaseDAO<CodingQuestion> implements RowMap
         String sql = "SELECT * FROM coding_questions WHERE lesson_id=?";
         return executeQuery(sql, this, lessonId);
     }
+
+    // lấy điểm của câu hỏi dựa vào questionId
+    public int getScoreByQuestionId(int questionId) {
+        String sql = "SELECT * FROM coding_questions WHERE question_id=?";
+        CodingQuestion question = executeQuerySingle(sql, this, questionId);
+        if (question != null) {
+            return question.getDifficulty().equals("Dễ") ? 10 : question.getDifficulty().equals("Trung Bình") ? 20 : 30;
+        }
+        return 10;
+    }
 }

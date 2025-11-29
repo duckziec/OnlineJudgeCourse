@@ -153,7 +153,6 @@ public class LessonService {
         return 10; // mặc định
     }
 
-
     //=======================XỬ LÝ BÀI TẬP CHI TIẾT=========================
     // show các bài tập categories
     public void showExcercise(int lessonId, String category) {

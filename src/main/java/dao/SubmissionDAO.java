@@ -38,8 +38,8 @@ public class SubmissionDAO extends BaseDAO<Submission> implements RowMapper<Subm
 
     // thêm submission
     public boolean insertSubmission(Submission submission) {
-        String sql = "INSERT INTO submissions (enrollment_id, question_id, code, language, status, score, test_passed, total_test) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        return executeUpdate(sql, submission.getEnrollmentId(), submission.getQuestionId(), submission.getCode(), submission.getLanguage(), submission.getStatus(), submission.getScore(), submission.getPassedTest(), submission.getTotalTest());
+        String sql = "INSERT INTO submissions (enrollment_id, question_id, code, language, status, test_passed) VALUES (?, ?, ?, ?, ?, ?)";
+        return executeUpdate(sql, submission.getEnrollmentId(), submission.getQuestionId(), submission.getCode(), submission.getLanguage(), submission.getStatus(), submission.getPassedTest());
     }
 
     // cập nhật phiếu submiss
@@ -75,34 +75,4 @@ public class SubmissionDAO extends BaseDAO<Submission> implements RowMapper<Subm
         String sql = "UPDATE submissions SET status = ?, score = ? WHERE submission_id = ?";
         return executeUpdate(sql, status, score, submissionId);
     }
-
-    // Tính tiến độ (Accepted / tổng số câu hỏi)
-//    public double calculateProgressByEnrollment(int enrollmentId) {
-//        String sql = """
-//                    SELECT
-//                        COUNT(DISTINCT cq.question_id) AS total,
-//                        SUM(CASE WHEN s.status = 'Accepted' THEN 1 ELSE 0 END) AS solved
-//                    FROM enrollments e
-//                    JOIN courses c ON e.course_id = c.course_id
-//                    JOIN lessons l ON l.course_id = c.course_id
-//                    JOIN coding_questions cq ON cq.lesson_id = l.lesson_id
-//                    LEFT JOIN submissions s
-//                        ON s.question_id = cq.question_id
-//                        AND s.enrollment_id = e.enrollment_id
-//                    WHERE e.enrollment_id = ?
-//                """;
-//
-//        return executeQuerySingle(sql, rs -> {
-//            try {
-//                double total = rs.getDouble("total");
-//                double solved = rs.getDouble("solved");
-//                return total == 0.0 ? 0.0 : (solved / total) * 100.0;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                return 0.0;
-//            }
-//        }, enrollmentId);
-//    }
-
-
 }

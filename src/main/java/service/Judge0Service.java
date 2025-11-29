@@ -1,5 +1,6 @@
 package service;
 
+import dao.CodingQuestionDAO;
 import dao.SubmissionDAO;
 import dao.TestCaseDAO;
 import model.Submission;
@@ -51,7 +52,7 @@ public class Judge0Service {
         double totalTime = 0.0;
         double maxTime = 0.0;
         double totalMemory = 0.0;
-        double pointOfQuestion = sub.getScore();
+        double pointOfQuestion = CodingQuestionDAO.getInstance().getScoreByQuestionId(sub.getQuestionId());
 
         int count = 1;
 
@@ -111,9 +112,7 @@ public class Judge0Service {
 
         String finalStatus = allPassed ? "Accepted" : "Wrong Answer";
         sub.setStatus(finalStatus);
-        sub.setScore(score);
         sub.setPassedTest(passedCount);
-        sub.setTotalTest(totalCount);
         submissionDAO.insertSubmission(sub);
 
         System.out.println("\n══════════════════════════════════════════════════════════");
@@ -138,7 +137,7 @@ public class Judge0Service {
         double totalTime = 0.0;
         double maxTime = 0.0;
         double totalMemory = 0.0;
-        double pointOfQuestion = sub.getScore();
+        double pointOfQuestion = CodingQuestionDAO.getInstance().getScoreByQuestionId(sub.getQuestionId());
 
         int count = 1;
 
@@ -312,9 +311,7 @@ public class Judge0Service {
 
         String finalStatus = allPassed ? "Accepted" : "Wrong Answer";
         sub.setStatus(finalStatus);
-        sub.setScore(score);
         sub.setPassedTest(passedCount);
-        sub.setTotalTest(totalCount);
 
         System.out.println("=== DEBUG SUBMISSION ===");
         System.out.println("Enrollment ID: " + sub.getEnrollmentId());
@@ -322,9 +319,8 @@ public class Judge0Service {
         System.out.println("Language: " + sub.getLanguage());
         System.out.println("Code length: " + (sub.getCode() != null ? sub.getCode().length() : 0));
         System.out.println("Status: " + sub.getStatus());
-        System.out.println("Score: " + sub.getScore());
+        System.out.println("Score: " + score);
         System.out.println("Passed test: " + sub.getPassedTest());
-        System.out.println("Test cases: " + sub.getTotalTest());
         System.out.println("========================");
 
         // Lưu vào database
