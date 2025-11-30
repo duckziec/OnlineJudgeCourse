@@ -1,5 +1,7 @@
 .env
 /target/
 /out/
+/jpackage-output/
 .idea/
 *.class
+build-jpackage.bat
